@@ -1,0 +1,11 @@
+Raytracing ::Raytracing(int nbSphere, int w, int h, . . . )
+    {
+    . . .
+    ShereCreator shereCreator(nbSphere,w,h); // sur la pile
+    Sphere* ptrTabSphere=shereCreator.getTab();
+// transfert to GM
+    toGM(ptrTabSphere);// a implemneter
+// transfert to CM
+    toCM(ptrTabSphere);// a implemneter
+    } // shereCreator qui est sur la pile est détruit ici
+// ce qui détruit les sphères cotés host, via son destructeur
