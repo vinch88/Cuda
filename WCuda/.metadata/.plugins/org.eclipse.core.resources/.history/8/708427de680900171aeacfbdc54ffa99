@@ -1,0 +1,103 @@
+#pragma once
+
+#include <math.h>
+#include "MathTools.h"
+#include "Sphere.h"
+#include <stdio.h>
+
+#include "ColorTools_GPU.h"
+using namespace gpu;
+
+/*----------------------------------------------------------------------*\
+ |*			Declaration 					*|
+ \*---------------------------------------------------------------------*/
+
+/*--------------------------------------*\
+ |*		Public			*|
+ \*-------------------------------------*/
+
+class RaytracingMath
+    {
+	/*--------------------------------------*\
+	|*		Constructor		*|
+	 \*-------------------------------------*/
+
+    public:
+
+	__device__ RaytracingMath(float t,int nbSphere,Sphere* ptrDevTabSphere)
+	    {
+	    this->t = t;
+	    this->nbSphere = nbSphere;
+	    this->ptrDevTabSphere = ptrDevTabSphere;
+	    }
+
+	__device__
+	   virtual ~RaytracingMath()
+	    {
+	    // rien
+	    }
+
+	/*--------------------------------------*\
+	|*		Methodes		*|
+	 \*-------------------------------------*/
+
+    public:
+
+	__device__
+	void colorIJ(uchar4* ptrColor, int i, int j)
+	    {
+	    float distanceMin = 10000.0;
+	    float hue = 0.0;
+
+	    for (int i = 0; i < nbSphere; ++i)
+		{
+		     //printf("r = %f",ptrDevTabSphere[i]);
+		    float h = ptrDevTabSphere[i].hCarre((float)i,(float)j);
+		    if(ptrDevTabSphere[i].isEnDessous(h)){
+			ptrColor->x = 128;
+			ptrColor->y = 128;
+			ptrColor->z = 128;
+		    }else{
+			ptrColor->x = 128;
+			ptrColor->y = 128;
+			ptrColor->z = 128;
+		    }
+
+		    /*float dz = ptrDevTabSphere[i].dz(h);
+		    float brightness = ptrDevTabSphere[i].brightness(dz);
+		    float distance = ptrDevTabSphere[i].distance(dz);
+
+		    if(distance<distanceMin){
+			distanceMin = distance;
+			hue = ptrDevTabSphere[i].getHueStart();
+		    }*/
+		}
+
+	    //ColorTools::HSB_TO_RVB(hue, ptrColor);
+
+
+	    //ptrColor->x = 128;
+	    //ptrColor->y = 128;
+	    //ptrColor->z = 128;
+
+	    ptrColor->w = 255; // opaque
+	    }
+
+    private:
+
+	/*--------------------------------------*\
+	|*		Attributs		*|
+	 \*-------------------------------------*/
+
+    private:
+
+	// Tools
+	float t;
+	int nbSphere;
+	Sphere* ptrDevTabSphere;
+
+    };
+
+/*----------------------------------------------------------------------*\
+ |*			End	 					*|
+ \*---------------------------------------------------------------------*/

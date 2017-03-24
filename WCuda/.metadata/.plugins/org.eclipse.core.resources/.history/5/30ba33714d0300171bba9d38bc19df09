@@ -1,0 +1,91 @@
+#include "Rippling.h"
+
+#include <iostream>
+#include <assert.h>
+
+#include "Device.h"
+
+using std::cout;
+using std::endl;
+
+extern __global__ void mandebrot(uchar4* ptrDevPixels,uint w, uint h,float t);
+/*----------------------------------------------------------------------*\
+ |*			Declaration 					*|
+ \*---------------------------------------------------------------------*/
+
+/*--------------------------------------*\
+ |*		Public			*|
+ \*-------------------------------------*/
+
+/*--------------------------------------*\
+ |*		Private			*|
+ \*-------------------------------------*/
+
+/*----------------------------------------------------------------------*\
+ |*			Implementation 					*|
+ \*---------------------------------------------------------------------*/
+
+/*--------------------------------------*\
+ |*		Public			*|
+ \*-------------------------------------*/
+
+Rippling::Rippling(const Grid& grid, uint w, uint h, float dt) :
+	Animable_I<uchar4>(w, h, "Mandelbrot_CUDA_rgba_uchar4")
+    {
+    // Input
+    this->dt = dt;  // animation
+
+    // Tools
+    this->t = 0;					// protected dans super classe Animable
+
+
+    }
+
+Rippling::~Rippling(void)
+    {
+    // rien
+    }
+
+/*--------------------------------------*\
+ |*		Public			*|
+ \*-------------------------------------*/
+
+/**
+ * Override
+ */
+void Rippling::animationStep()
+    {
+    t += dt;
+    }
+
+/*--------------------------------------*\
+ |*		Private			*|
+ \*-------------------------------------*/
+
+/**
+ * Override (code naturel omp)
+ * Image non zoomable : domaineMath pas use ici
+ */
+void Rippling::processForAutoOMP(uchar4* ptrTabPixels, uint w, uint h, const DomaineMath& domaineMath)
+    {
+    RipplingMath ripplingMath(w); // ici pour preparer cuda
+
+ #pragma omp parallel for
+     for (int i = 0; i < h; i++)
+ 	{
+ 	for (int j = 0; j < w; j++)
+ 	    {
+ 	    // int s = i * W + j;
+ 	    int s = IndiceTools::toS(w, i, j);    // i[0,H[ j[0,W[  --> s[0,W*H[
+
+ 	   ripplingMath.colorIJ(&ptrTabPixels[s], i, j, t);
+ 	    }
+ 	}
+    }
+
+    }
+
+/*----------------------------------------------------------------------*\
+ |*			End	 					*|
+ \*---------------------------------------------------------------------*/
+

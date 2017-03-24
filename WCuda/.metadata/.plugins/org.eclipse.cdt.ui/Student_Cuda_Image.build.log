@@ -1,4 +1,4 @@
-14:20:07 **** Build of configuration CudaGCC_parallel for project Student_Cuda_Image ****
+21:54:18 **** Incremental Build of configuration CudaGCC_parallel for project Student_Cuda_Image ****
 cbicc cuda jall 
 
 --------------------------------------------------------
@@ -126,11 +126,12 @@ Cuda compilation tools, release 8.0, V8.0.44
 [CBI] ->              : src/cpp/core/01_Rippling/01_animable/device/math/
 [CBI] ->              : src/cpp/core/01_Rippling/01_animable/host/
 [CBI] ->              : src/cpp/core/01_Rippling/02_provider/
-[CBI] ->              : src/cpp/core/03_RayTracing/01_Vague_EXEMPLECOPIE_POUR_VOIR_STRUCTURE/01_animable/device/math/
-[CBI] ->              : src/cpp/core/03_RayTracing/01_Vague_EXEMPLECOPIE_POUR_VOIR_STRUCTURE/01_animable/host/
-[CBI] ->              : src/cpp/core/03_RayTracing/01_Vague_EXEMPLECOPIE_POUR_VOIR_STRUCTURE/02_provider/
+[CBI] ->              : src/cpp/core/02_Mandelbrot_Julia/moo/device/math/
+[CBI] ->              : src/cpp/core/02_Mandelbrot_Julia/moo/host/
+[CBI] ->              : src/cpp/core/02_Mandelbrot_Julia/provider/
 [CBI] ->              : src/cpp/core/03_RayTracing/moo/device/math/
 [CBI] ->              : src/cpp/core/03_RayTracing/moo/host/
+[CBI] ->              : src/cpp/core/03_RayTracing/provider/
 
 
 [CBI] -> LIB_PATH (auto detect):
@@ -371,78 +372,162 @@ Cuda compilation tools, release 8.0, V8.0.44
 [CBI] ->              : opencv_videoio_gcc484
 [CBI] ->              : opencv_videostab_gcc484
 
-[CBI] -> Create folder : /tmp/ramdrive/arc19/Targets/Student_Cuda_Image/bin
-[CBI] -> Create folder : /tmp/ramdrive/arc19/Targets/Student_Cuda_Image/obj
-[CBI] -> Create folder : /tmp/ramdrive/arc19/Targets/Student_Cuda_Image/cubin
 
 [CBI] -> Compilation parallel (32 threads)
 
 [Student_Cuda_Image_cuda_80_x86_64] -> g++ compiling .cpp : src/cpp/main.cpp
 [Student_Cuda_Image_cuda_80_x86_64] -> g++ compiling .cpp : src/cpp/core/mainAnimable.cpp
-[Student_Cuda_Image_cuda_80_x86_64] -> g++ compiling .cpp : src/cpp/core/mainBarivox.cpp
-[Student_Cuda_Image_cuda_80_x86_64] -> g++ compiling .cpp : src/cpp/core/mainBruteForce.cpp
 [Student_Cuda_Image_cuda_80_x86_64] -> g++ compiling .cpp : src/cpp/core/mainImage.cpp
-[Student_Cuda_Image_cuda_80_x86_64] -> g++ compiling .cpp : src/cpp/core/03_RayTracing/01_Vague_EXEMPLECOPIE_POUR_VOIR_STRUCTURE/02_provider/VagueProvider.cpp
-[Student_Cuda_Image_cuda_80_x86_64] -> g++ compiling .cpp : src/cpp/core/01_Rippling/02_provider/RipplingProvider.cpp
-[Student_Cuda_Image_cuda_80_x86_64] -> nvcc compiling .cu : src/cpp/core/03_RayTracing/01_Vague_EXEMPLECOPIE_POUR_VOIR_STRUCTURE/01_animable/device/vagueDevice.cu
-[Student_Cuda_Image_cuda_80_x86_64] -> nvcc compiling .cu : src/cpp/core/03_RayTracing/01_Vague_EXEMPLECOPIE_POUR_VOIR_STRUCTURE/01_animable/host/Vague.cu
-[Student_Cuda_Image_cuda_80_x86_64] -> nvcc compiling .cu : src/cpp/core/03_RayTracing/moo/device/Sphere.cu
-[Student_Cuda_Image_cuda_80_x86_64] -> nvcc compiling .cu : src/cpp/core/03_RayTracing/moo/host/Raytracing.cu
-[Student_Cuda_Image_cuda_80_x86_64] -> nvcc compiling .cu : src/cpp/core/03_RayTracing/moo/host/SphereCreator.cu
-[Student_Cuda_Image_cuda_80_x86_64] -> nvcc compiling .cu : src/cpp/core/01_Rippling/01_animable/device/ripplingDevice.cu
-[Student_Cuda_Image_cuda_80_x86_64] -> nvcc compiling .cu : src/cpp/core/01_Rippling/01_animable/host/Rippling.cu
-src/cpp/core/03_RayTracing/moo/host/Raytracing.cu(1): error: name followed by "::" must be a class or namespace name
 
-src/cpp/core/03_RayTracing/moo/host/Raytracing.cu(1): error: expected a type specifier
+[CBI] -> Linking to   : /tmp/ramdrive/arc19/Targets/Student_Cuda_Image/bin/Student_Cuda_Image_cuda_80_x86_64.run
 
-src/cpp/core/03_RayTracing/moo/host/Raytracing.cu(1): error: explicit type is missing ("int" assumed)
+[CBI] -> Library Link :
+[CBI] ->
+[CBI] ->              : -lBilatTools_CPP_301_004_gcc_x86_64
+[CBI] ->              : -lBilatTools_Cuda_301_004_cuda_80_x86_64
+[CBI] ->              : -lBilatTools_Cuda_Image_301_004_cuda_80_x86_64
+[CBI] ->              : -lBilatTools_Image_OpenCV_Cuda_301_004_cuda_80_x86_64
+[CBI] ->              : -lBilatTools_OMP_301_004_gcc_x86_64
+[CBI] ->              : -lBilatTools_OpenCV_301_004_gcc_x86_64
+[CBI] ->              : -lBilat_Fenetrage_Displayable_301_gcc_x86_64
+[CBI] ->              : -lBilat_Fenetrage_Displayable_GL_301_gcc_x86_64
+[CBI] ->              : -lBilat_Fenetrage_FreeGlut_Tools_301_gcc_x86_64
+[CBI] ->              : -lBilat_Image_FreeGlut_301_gcc_x86_64
+[CBI] ->              : -lBilat_Image_FreeGlut_Cuda_301_cuda_80_x86_64
+[CBI] ->              : -lBilat_Image_GL_301_gcc_x86_64
+[CBI] ->              : -lBilat_Image_GL_Cuda_301_cuda_80_x86_64
+[CBI] ->              : -lBilat_OpenGL_Tools_301_gcc_x86_64
+[CBI] ->              : -lGL
+[CBI] ->              : -lGLEW
+[CBI] ->              : -lGLU
+[CBI] ->              : -lOpenCL
+[CBI] ->              : -lboost_atomic-gcc484
+[CBI] ->              : -lboost_atomic-icc17
+[CBI] ->              : -lboost_chrono-gcc484
+[CBI] ->              : -lboost_chrono-icc17
+[CBI] ->              : -lboost_container-gcc484
+[CBI] ->              : -lboost_container-icc17
+[CBI] ->              : -lboost_date_time-gcc484
+[CBI] ->              : -lboost_date_time-icc17
+[CBI] ->              : -lboost_filesystem-gcc484
+[CBI] ->              : -lboost_filesystem-icc17
+[CBI] ->              : -lboost_graph-gcc484
+[CBI] ->              : -lboost_graph-icc17
+[CBI] ->              : -lboost_locale-gcc484
+[CBI] ->              : -lboost_locale-icc17
+[CBI] ->              : -lboost_log-gcc484
+[CBI] ->              : -lboost_log-icc17
+[CBI] ->              : -lboost_log_setup-gcc484
+[CBI] ->              : -lboost_log_setup-icc17
+[CBI] ->              : -lboost_math_c99-gcc484
+[CBI] ->              : -lboost_math_c99-icc17
+[CBI] ->              : -lboost_math_c99f-gcc484
+[CBI] ->              : -lboost_math_c99f-icc17
+[CBI] ->              : -lboost_math_c99l-gcc484
+[CBI] ->              : -lboost_math_c99l-icc17
+[CBI] ->              : -lboost_math_tr1-gcc484
+[CBI] ->              : -lboost_math_tr1-icc17
+[CBI] ->              : -lboost_math_tr1f-gcc484
+[CBI] ->              : -lboost_math_tr1f-icc17
+[CBI] ->              : -lboost_math_tr1l-gcc484
+[CBI] ->              : -lboost_math_tr1l-icc17
+[CBI] ->              : -lboost_prg_exec_monitor-gcc484
+[CBI] ->              : -lboost_prg_exec_monitor-icc17
+[CBI] ->              : -lboost_program_options-gcc484
+[CBI] ->              : -lboost_program_options-icc17
+[CBI] ->              : -lboost_random-gcc484
+[CBI] ->              : -lboost_random-icc17
+[CBI] ->              : -lboost_regex-gcc484
+[CBI] ->              : -lboost_regex-icc17
+[CBI] ->              : -lboost_serialization-gcc484
+[CBI] ->              : -lboost_serialization-icc17
+[CBI] ->              : -lboost_signals-gcc484
+[CBI] ->              : -lboost_signals-icc17
+[CBI] ->              : -lboost_system-gcc484
+[CBI] ->              : -lboost_system-icc17
+[CBI] ->              : -lboost_thread-gcc484
+[CBI] ->              : -lboost_thread-icc17
+[CBI] ->              : -lboost_timer-gcc484
+[CBI] ->              : -lboost_timer-icc17
+[CBI] ->              : -lboost_type_erasure-gcc484
+[CBI] ->              : -lboost_type_erasure-icc17
+[CBI] ->              : -lboost_unit_test_framework-gcc484
+[CBI] ->              : -lboost_unit_test_framework-icc17
+[CBI] ->              : -lboost_wave-gcc484
+[CBI] ->              : -lboost_wave-icc17
+[CBI] ->              : -lboost_wserialization-gcc484
+[CBI] ->              : -lboost_wserialization-icc17
+[CBI] ->              : -lcublas
+[CBI] ->              : -lcuda
+[CBI] ->              : -lcudart
+[CBI] ->              : -lcufft
+[CBI] ->              : -lcufftw
+[CBI] ->              : -lcuinj64
+[CBI] ->              : -lcurand
+[CBI] ->              : -lcusolver
+[CBI] ->              : -lcusparse
+[CBI] ->              : -lglut
+[CBI] ->              : -lgomp
+[CBI] ->              : -lnppc
+[CBI] ->              : -lnppi
+[CBI] ->              : -lnppial
+[CBI] ->              : -lnppicc
+[CBI] ->              : -lnppicom
+[CBI] ->              : -lnppidei
+[CBI] ->              : -lnppif
+[CBI] ->              : -lnppig
+[CBI] ->              : -lnppim
+[CBI] ->              : -lnppist
+[CBI] ->              : -lnppisu
+[CBI] ->              : -lnppitc
+[CBI] ->              : -lnpps
+[CBI] ->              : -lnvToolsExt
+[CBI] ->              : -lnvblas
+[CBI] ->              : -lnvgraph
+[CBI] ->              : -lnvidia-ml
+[CBI] ->              : -lnvrtc
+[CBI] ->              : -lnvrtc-builtins
+[CBI] ->              : -lopencv_calib3d_gcc484
+[CBI] ->              : -lopencv_core_gcc484
+[CBI] ->              : -lopencv_features2d_gcc484
+[CBI] ->              : -lopencv_flann_gcc484
+[CBI] ->              : -lopencv_highgui_gcc484
+[CBI] ->              : -lopencv_imgcodecs_gcc484
+[CBI] ->              : -lopencv_imgproc_gcc484
+[CBI] ->              : -lopencv_ml_gcc484
+[CBI] ->              : -lopencv_objdetect_gcc484
+[CBI] ->              : -lopencv_photo_gcc484
+[CBI] ->              : -lopencv_shape_gcc484
+[CBI] ->              : -lopencv_stitching_gcc484
+[CBI] ->              : -lopencv_superres_gcc484
+[CBI] ->              : -lopencv_video_gcc484
+[CBI] ->              : -lopencv_videoio_gcc484
+[CBI] ->              : -lopencv_videostab_gcc484
 
-src/cpp/core/03_RayTracing/moo/host/Raytracing.cu(3): error: expected an expression
 
-src/cpp/core/03_RayTracing/moo/host/Raytracing.cu(5): error: identifier "Sphere" is undefined
+==================================================================================
+[CBI] -> Target Name  : Student_Cuda_Image_cuda_80_x86_64
+[CBI] -> Location     : /tmp/ramdrive/arc19/Targets/Student_Cuda_Image/bin/Student_Cuda_Image_cuda_80_x86_64.run
+[CBI] -> Deploy 	  : ../RELEASE/bin
+[CBI] ->
+[CBI] -> Type	 	  : EXE
+[CBI] -> Arch	 	  : x86_64
+[CBI] -> OS	 	      : Linux
+[CBI] -> User	 	  : arc19
+[CBI] ->
+[CBI] -> Compilateur  : g++ && nvcc
+[CBI] -> Task		  : End Compiling-Linking !
+[CBI] -> Time		  : 2 (s)
+==================================================================================
 
-src/cpp/core/03_RayTracing/moo/host/Raytracing.cu(5): error: identifier "ptrTabSphere" is undefined
 
-src/cpp/core/03_RayTracing/moo/host/Raytracing.cu(5): error: identifier "shereCreator" is undefined
+[CBI] -> Deploying      : ../RELEASE/bin/Student_Cuda_Image_cuda_80_x86_64.run
 
-src/cpp/core/03_RayTracing/moo/host/Raytracing.cu(7): error: identifier "toGM" is undefined
+[CBI] -> Symlink Project Inc
+[CBI] -> To update code completion : ctrl-shift-s   or   gui/index/rebuild
 
-src/cpp/core/03_RayTracing/moo/host/Raytracing.cu(9): error: identifier "toCM" is undefined
+[CBI] -> Student_Cuda_Image_cuda_80_x86_64 : End ALL!
 
-src/cpp/core/03_RayTracing/moo/host/Raytracing.cu(10): warning: missing return statement at end of non-void function "Raytracing"
 
-src/cpp/core/01_Rippling/02_provider/RipplingProvider.cpp: In member function ‘virtual gpu::Animable_I<uchar4>* RipplingProvider::createAnimable()’:
-src/cpp/core/01_Rippling/02_provider/RipplingProvider.cpp:54:15: error: no match for call to ‘(Grid) (dim3&, dim3&)’
-     grid(dg,db);
-               ^
-make[1]: *** [/tmp/ramdrive/arc19/Targets/Student_Cuda_Image/obj/RipplingProvider.o] Error 1
-make[1]: *** Waiting for unfinished jobs....
-src/cpp/core/03_RayTracing/moo/device/math/Sphere.h(13): error: a pointer to a bound function may only be used to call the function
-
-1 error detected in the compilation of "/tmp/tmpxft_00004c6a_00000000-7_SphereCreator.cpp1.ii".
-make[1]: *** [/tmp/ramdrive/arc19/Targets/Student_Cuda_Image/obj/SphereCreator.o] Error 2
-src/cpp/core/03_RayTracing/moo/device/math/Sphere.h(13): error: a pointer to a bound function may only be used to call the function
-
-src/cpp/core/03_RayTracing/moo/device/Sphere.cu(38): error: identifier "VagueMath" is undefined
-
-src/cpp/core/03_RayTracing/moo/device/Sphere.cu(38): error: identifier "VagueMath" is undefined
-
-src/cpp/core/01_Rippling/01_animable/device/math/RipplingMath.h(66): error: expression preceding parentheses of apparent call must have (pointer-to-) function type
-
-3 errors detected in the compilation of "/tmp/tmpxft_00004c58_00000000-7_Sphere.cpp1.ii".
-1 error detected in the compilation of "/tmp/tmpxft_00004c74_00000000-7_ripplingDevice.cpp1.ii".
-9 errors detected in the compilation of "/tmp/tmpxft_00004c60_00000000-7_Raytracing.cpp1.ii".
-make[1]: *** [/tmp/ramdrive/arc19/Targets/Student_Cuda_Image/obj/Sphere.o] Error 2
-make[1]: *** [/tmp/ramdrive/arc19/Targets/Student_Cuda_Image/obj/ripplingDevice.o] Error 2
-make[1]: *** [/tmp/ramdrive/arc19/Targets/Student_Cuda_Image/obj/Raytracing.o] Error 2
-ptxas info    : 96 bytes gmem
-ptxas info    : 32 bytes gmem
-ptxas info    : Compiling entry function '_Z5vagueP6uchar4jjf' for 'sm_52'
-ptxas info    : Function properties for _Z5vagueP6uchar4jjf
-    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
-ptxas info    : Used 14 registers, 340 bytes cmem[0]
-ptxas info    : 96 bytes gmem
-make: *** [jall] Error 2
-
-14:20:10 Build Finished (took 2s.843ms)
+21:54:20 Build Finished (took 2s.681ms)
 

@@ -1,0 +1,68 @@
+#include "Indice2D.h"
+#include "cudaTools.h"
+#include "Device.h"
+
+#include "math/MandelbrotMath.h"
+#include "DomaineMath_GPU.h"
+#include "IndiceTools_GPU.h"
+using namespace gpu;
+
+/*----------------------------------------------------------------------*\
+ |*			Declaration 					*|
+ \*---------------------------------------------------------------------*/
+
+/*--------------------------------------*\
+ |*		Public			*|
+ \*-------------------------------------*/
+
+__global__ void mandelbrot(uchar4* ptrDevPixels,uint w, uint h,uint t,const DomaineMath& domaineMath);
+
+/*--------------------------------------*\
+ |*		Private			*|
+ \*-------------------------------------*/
+
+/*----------------------------------------------------------------------*\
+ |*			Implementation 					*|
+ \*---------------------------------------------------------------------*/
+
+/*--------------------------------------*\
+ |*		Public			*|
+ \*-------------------------------------*/
+__global__ void mandelbrot(uchar4* ptrDevPixels, uint w, uint h, uint t,const DomaineMath& domaineMath)
+    {
+    MandelbrotMath mandelbrotMath = MandelbrotMath(t);
+
+    const int WH=w*h;
+    const int TID = Indice2D::tid();
+    const int NB_THREAD = Indice2D::nbThread();
+
+    int i;
+    int j;
+
+    double x = 0;
+    printf("x %f", x);
+    double y;
+
+    int s = TID;
+    while (s < WH)
+	{
+	IndiceTools::toIJ(s, w, &i, &j);
+
+	domaineMath.toXY(i, j, &x, &y);
+
+
+
+	mandelbrotMath.colorXY(&ptrDevPixels[s],x, y);
+	s += NB_THREAD;
+	}
+    }
+
+
+/*--------------------------------------*\
+ |*		Public			*|
+ \*-------------------------------------*/
+
+/*----------------------------------------------------------------------*\
+ |*			End	 					*|
+ \*---------------------------------------------------------------------*/
+

@@ -1,0 +1,1 @@
+/home/arc19/CUDA/toStudent/code/WCuda/Student_OMP_Image//src/core/03_Julia/a_animable/Fractale.h
