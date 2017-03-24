@@ -50,7 +50,6 @@ int mainAnimable(Settings& settings)
 
     rippling();
     // mandelbrot();
-    //raytracing();
 
     cout << "\n[Animable] end" << endl;
 
@@ -67,16 +66,6 @@ void rippling()
 
     RipplingProvider provider;
     animer<uchar4>(&provider,NB_ITERATION);
-    }
-
-void mandelbrot()
-    {
-
-    }
-
-void raytracing()
-    {
-
     }
 
 /*-----------------------------------*\

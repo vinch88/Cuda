@@ -1,5 +1,5 @@
-00:54:20 **** Build of configuration CudaGCC for project Student_Cuda_Image ****
-cbicc cuda all 
+14:20:07 **** Build of configuration CudaGCC_parallel for project Student_Cuda_Image ****
+cbicc cuda jall 
 
 --------------------------------------------------------
 [Runtime] : gcc x86
@@ -78,7 +78,7 @@ Built on Sun_Sep__4_22:14:01_CDT_2016
 Cuda compilation tools, release 8.0, V8.0.44
 
 
-[CUDA GCC] : all
+[CUDA GCC] : jall
 
 
 ==================================================================================
@@ -112,6 +112,7 @@ Cuda compilation tools, release 8.0, V8.0.44
 [CBI] -> NVCCFLAGS (Partial) :
 [CBI] ->
 [CBI] ->              : --fmad=true
+[CBI] ->              : --ptxas-options=-v
 [CBI] ->              : -arch=sm_52
 [CBI] ->              : -m64
 [CBI] ->              : -std=c++11
@@ -125,6 +126,11 @@ Cuda compilation tools, release 8.0, V8.0.44
 [CBI] ->              : src/cpp/core/01_Rippling/01_animable/device/math/
 [CBI] ->              : src/cpp/core/01_Rippling/01_animable/host/
 [CBI] ->              : src/cpp/core/01_Rippling/02_provider/
+[CBI] ->              : src/cpp/core/03_RayTracing/01_Vague_EXEMPLECOPIE_POUR_VOIR_STRUCTURE/01_animable/device/math/
+[CBI] ->              : src/cpp/core/03_RayTracing/01_Vague_EXEMPLECOPIE_POUR_VOIR_STRUCTURE/01_animable/host/
+[CBI] ->              : src/cpp/core/03_RayTracing/01_Vague_EXEMPLECOPIE_POUR_VOIR_STRUCTURE/02_provider/
+[CBI] ->              : src/cpp/core/03_RayTracing/moo/device/math/
+[CBI] ->              : src/cpp/core/03_RayTracing/moo/host/
 
 
 [CBI] -> LIB_PATH (auto detect):
@@ -365,15 +371,78 @@ Cuda compilation tools, release 8.0, V8.0.44
 [CBI] ->              : opencv_videoio_gcc484
 [CBI] ->              : opencv_videostab_gcc484
 
+[CBI] -> Create folder : /tmp/ramdrive/arc19/Targets/Student_Cuda_Image/bin
+[CBI] -> Create folder : /tmp/ramdrive/arc19/Targets/Student_Cuda_Image/obj
+[CBI] -> Create folder : /tmp/ramdrive/arc19/Targets/Student_Cuda_Image/cubin
 
+[CBI] -> Compilation parallel (32 threads)
 
-[CBI] -> Deploying      : ../RELEASE/bin/Student_Cuda_Image_cuda_80_x86_64.run
+[Student_Cuda_Image_cuda_80_x86_64] -> g++ compiling .cpp : src/cpp/main.cpp
+[Student_Cuda_Image_cuda_80_x86_64] -> g++ compiling .cpp : src/cpp/core/mainAnimable.cpp
+[Student_Cuda_Image_cuda_80_x86_64] -> g++ compiling .cpp : src/cpp/core/mainBarivox.cpp
+[Student_Cuda_Image_cuda_80_x86_64] -> g++ compiling .cpp : src/cpp/core/mainBruteForce.cpp
+[Student_Cuda_Image_cuda_80_x86_64] -> g++ compiling .cpp : src/cpp/core/mainImage.cpp
+[Student_Cuda_Image_cuda_80_x86_64] -> g++ compiling .cpp : src/cpp/core/03_RayTracing/01_Vague_EXEMPLECOPIE_POUR_VOIR_STRUCTURE/02_provider/VagueProvider.cpp
+[Student_Cuda_Image_cuda_80_x86_64] -> g++ compiling .cpp : src/cpp/core/01_Rippling/02_provider/RipplingProvider.cpp
+[Student_Cuda_Image_cuda_80_x86_64] -> nvcc compiling .cu : src/cpp/core/03_RayTracing/01_Vague_EXEMPLECOPIE_POUR_VOIR_STRUCTURE/01_animable/device/vagueDevice.cu
+[Student_Cuda_Image_cuda_80_x86_64] -> nvcc compiling .cu : src/cpp/core/03_RayTracing/01_Vague_EXEMPLECOPIE_POUR_VOIR_STRUCTURE/01_animable/host/Vague.cu
+[Student_Cuda_Image_cuda_80_x86_64] -> nvcc compiling .cu : src/cpp/core/03_RayTracing/moo/device/Sphere.cu
+[Student_Cuda_Image_cuda_80_x86_64] -> nvcc compiling .cu : src/cpp/core/03_RayTracing/moo/host/Raytracing.cu
+[Student_Cuda_Image_cuda_80_x86_64] -> nvcc compiling .cu : src/cpp/core/03_RayTracing/moo/host/SphereCreator.cu
+[Student_Cuda_Image_cuda_80_x86_64] -> nvcc compiling .cu : src/cpp/core/01_Rippling/01_animable/device/ripplingDevice.cu
+[Student_Cuda_Image_cuda_80_x86_64] -> nvcc compiling .cu : src/cpp/core/01_Rippling/01_animable/host/Rippling.cu
+src/cpp/core/03_RayTracing/moo/host/Raytracing.cu(1): error: name followed by "::" must be a class or namespace name
 
-[CBI] -> Symlink Project Inc
-[CBI] -> To update code completion : ctrl-shift-s   or   gui/index/rebuild
+src/cpp/core/03_RayTracing/moo/host/Raytracing.cu(1): error: expected a type specifier
 
-[CBI] -> Student_Cuda_Image_cuda_80_x86_64   : End ALL!
+src/cpp/core/03_RayTracing/moo/host/Raytracing.cu(1): error: explicit type is missing ("int" assumed)
 
+src/cpp/core/03_RayTracing/moo/host/Raytracing.cu(3): error: expected an expression
 
-00:54:21 Build Finished (took 528ms)
+src/cpp/core/03_RayTracing/moo/host/Raytracing.cu(5): error: identifier "Sphere" is undefined
+
+src/cpp/core/03_RayTracing/moo/host/Raytracing.cu(5): error: identifier "ptrTabSphere" is undefined
+
+src/cpp/core/03_RayTracing/moo/host/Raytracing.cu(5): error: identifier "shereCreator" is undefined
+
+src/cpp/core/03_RayTracing/moo/host/Raytracing.cu(7): error: identifier "toGM" is undefined
+
+src/cpp/core/03_RayTracing/moo/host/Raytracing.cu(9): error: identifier "toCM" is undefined
+
+src/cpp/core/03_RayTracing/moo/host/Raytracing.cu(10): warning: missing return statement at end of non-void function "Raytracing"
+
+src/cpp/core/01_Rippling/02_provider/RipplingProvider.cpp: In member function ‘virtual gpu::Animable_I<uchar4>* RipplingProvider::createAnimable()’:
+src/cpp/core/01_Rippling/02_provider/RipplingProvider.cpp:54:15: error: no match for call to ‘(Grid) (dim3&, dim3&)’
+     grid(dg,db);
+               ^
+make[1]: *** [/tmp/ramdrive/arc19/Targets/Student_Cuda_Image/obj/RipplingProvider.o] Error 1
+make[1]: *** Waiting for unfinished jobs....
+src/cpp/core/03_RayTracing/moo/device/math/Sphere.h(13): error: a pointer to a bound function may only be used to call the function
+
+1 error detected in the compilation of "/tmp/tmpxft_00004c6a_00000000-7_SphereCreator.cpp1.ii".
+make[1]: *** [/tmp/ramdrive/arc19/Targets/Student_Cuda_Image/obj/SphereCreator.o] Error 2
+src/cpp/core/03_RayTracing/moo/device/math/Sphere.h(13): error: a pointer to a bound function may only be used to call the function
+
+src/cpp/core/03_RayTracing/moo/device/Sphere.cu(38): error: identifier "VagueMath" is undefined
+
+src/cpp/core/03_RayTracing/moo/device/Sphere.cu(38): error: identifier "VagueMath" is undefined
+
+src/cpp/core/01_Rippling/01_animable/device/math/RipplingMath.h(66): error: expression preceding parentheses of apparent call must have (pointer-to-) function type
+
+3 errors detected in the compilation of "/tmp/tmpxft_00004c58_00000000-7_Sphere.cpp1.ii".
+1 error detected in the compilation of "/tmp/tmpxft_00004c74_00000000-7_ripplingDevice.cpp1.ii".
+9 errors detected in the compilation of "/tmp/tmpxft_00004c60_00000000-7_Raytracing.cpp1.ii".
+make[1]: *** [/tmp/ramdrive/arc19/Targets/Student_Cuda_Image/obj/Sphere.o] Error 2
+make[1]: *** [/tmp/ramdrive/arc19/Targets/Student_Cuda_Image/obj/ripplingDevice.o] Error 2
+make[1]: *** [/tmp/ramdrive/arc19/Targets/Student_Cuda_Image/obj/Raytracing.o] Error 2
+ptxas info    : 96 bytes gmem
+ptxas info    : 32 bytes gmem
+ptxas info    : Compiling entry function '_Z5vagueP6uchar4jjf' for 'sm_52'
+ptxas info    : Function properties for _Z5vagueP6uchar4jjf
+    0 bytes stack frame, 0 bytes spill stores, 0 bytes spill loads
+ptxas info    : Used 14 registers, 340 bytes cmem[0]
+ptxas info    : 96 bytes gmem
+make: *** [jall] Error 2
+
+14:20:10 Build Finished (took 2s.843ms)
 

@@ -69,16 +69,6 @@ void rippling()
     animer<uchar4>(&provider,NB_ITERATION);
     }
 
-void mandelbrot()
-    {
-
-    }
-
-void raytracing()
-    {
-
-    }
-
 /*-----------------------------------*\
  |*		Tools	        	*|
  \*-----------------------------------*/

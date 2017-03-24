@@ -46,7 +46,12 @@ Animable_I<uchar4>* RipplingProvider::createAnimable()
     int mp = Device::getMPCount();
     int coreMP = Device::getCoreCountMP();
 
-    Grid grid;  // TODO definissez une grille cuda (dg, db)
+    Grid grid;
+
+    dim3 dg = dim3(144,2,1);
+    dim3 db = dim3(144,2,1);
+
+    grid(dg,db);
 
     return new Rippling(grid,dw, dh, dt);
     }

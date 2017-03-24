@@ -70,7 +70,7 @@ class RipplingMath
 	float  dij(int i, int j)
 	    {
 	    float fi = i - (float)dim2;
-	    float fj = j - (float)dim2;
+	    float fi = i - (float)dim2;
 	    return sqrtf(fi*fi+fj*fj);
 	    }
 
