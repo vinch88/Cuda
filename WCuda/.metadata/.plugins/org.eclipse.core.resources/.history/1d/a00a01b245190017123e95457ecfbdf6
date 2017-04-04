@@ -1,0 +1,48 @@
+#include <iostream>
+
+#include "Device.h"
+#include "Montecarlo.h"
+
+using std::cout;
+using std::endl;
+
+
+extern __global__ void montecarlo(curandState* ptrTabGen, int nbFlecheByThread, int* ptrDevNxTotal);
+
+
+Montecarlo::Montecarlo(const Grid& grid)
+    {
+
+    this->dg = grid.dg;
+    this->db = grid.db;
+
+    this->sizeResultGM = sizeof(int);
+    this->sizeTabSM = db.x * sizeof(int);
+
+    nbFlecheByThread = INT_MAX;
+
+    Device::malloc(&ptrDevNxTotal, sizeResultGM);
+    cudaMemset(ptrDevNxTotal, 0,sizeResultGM);
+    }
+
+Montecarlo::~Montecarlo(void)
+    {
+    Device::free(ptrDevNxTotal);
+    }
+
+
+void Montecarlo::run()
+    {
+    Device::lastCudaError("montecarlo (before)"); // temp debug
+    slice<<<dg,db, sizeTabSM >>>(ptrDevNxTotal,nbFlecheByThread); // assynchrone
+    Device::lastCudaError("slice (after)"); // temp debug
+
+    //Device::synchronize(); // Temp,debug, only for printf in GPU
+
+    Device::memcpyDToH(&result, ptrDevResult, sizeResultGM); // barriere synchronisation implicite
+
+    }
+
+float Montecarlo::getResult(){
+    return result;
+}

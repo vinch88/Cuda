@@ -1,0 +1,40 @@
+
+#include "Indice1D.h"
+#include "cudaTools.h"
+#include <stdio.h>
+#include "reductionADD.h"
+#include "curandTools.h"
+
+static __device__ void reductionInterThread(float* ptrDevResult, int nbSlice);
+static __device__ float fpi(float x);
+
+__global__ void montecarlo(curandState* ptrTabGen, int nbFlecheByThread, int* ptrDevNxTotal)
+    {
+    extern __shared__ int tab_SM[];
+    reductionInterThread(ptrTabGen, nbFlecheByThread);
+    __syncthreads();
+    reductionADD<int>(tab_SM, ptrDevNxTotal);
+    }
+
+__device__
+void reductionInterThread(curandState* ptrTabGen, int nbFlecheByThread)
+    {
+    const int TID = Indice1D::tid();
+
+    curandState localGenerator = ptrTabGen[TID];
+
+    float xAlea;
+    float yAlea;
+
+    for(long i = 0; i < nbFlecheByThread; i++)
+	{
+	xAlea = curand_uniform(&localGenerator);
+	yAlea = curand_uniform(&localGenerator);
+	}
+    }
+
+__device__
+float fpi(float x)
+    {
+    return 4 / (1 + x * x);
+}

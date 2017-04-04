@@ -1,0 +1,36 @@
+#pragma once
+
+#include "cudaTools.h"
+#include "Grid.h"
+
+
+
+
+class Montecarlo
+    {
+
+
+    public:
+
+	Montecarlo(const Grid& grid);
+
+	virtual ~Montecarlo(void);
+
+	void run();
+
+	int getResult();
+
+    private:
+
+	dim3 dg;
+	dim3 db;
+	int* ptrDevResult;
+	int result;
+	size_t sizeTabSM;
+	size_t sizeResultGM;
+
+    };
+
+/*----------------------------------------------------------------------*\
+ |*			End	 					*|
+ \*---------------------------------------------------------------------*/
